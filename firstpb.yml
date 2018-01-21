@@ -1,0 +1,18 @@
+- hosts: all
+  tasks:
+  - debug:
+      msg: "The current date and time is {{ lookup('pipe','date +%Y-%m-%d-%H-%M-%S') }}"
+
+  - name: sleeping 2 seconds
+    shell: sleep 2
+    register: some_output
+  - name: printing hi
+    shell: echo "hi"
+    register: some_output
+  - debug:
+      msg: "The current date and time is {{ lookup('pipe','date +%Y-%m-%d-%H-%M-%S') }}"
+  - name: Shell edit test
+    command: cat /etc/hosts | grep 127.0.0.1
+    register: op
+  - debug:
+      var: op
