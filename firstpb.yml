@@ -12,7 +12,7 @@
   - debug:
       msg: "The current date and time is {{ lookup('pipe','date +%Y-%m-%d-%H-%M-%S') }}"
   - name: Shell edit test
-    command: cat /etc/hosts | grep 127.0.0.1
+    shell: cat /etc/hosts | grep 127.0.0.1
     register: op
   - debug:
       var: op
